@@ -5,9 +5,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = "!"
+
  
 client.on('message', msg => {
   if (msg.content === 'ping') {
@@ -1306,7 +1304,12 @@ fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
 if (err) console.error(err);
 })
 });
- 
+
+
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = "!"
+
 client.on('message', message => {
  
     if(message.content.startsWith(prefix + 'rep')) {
