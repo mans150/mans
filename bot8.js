@@ -1289,7 +1289,7 @@ var muteembeddm = new Discord.RichEmbed()
 
 
   if (command == "unmute") {
-if (!message.channel.guild) return;
+if (message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
