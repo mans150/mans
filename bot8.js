@@ -4,8 +4,6 @@ const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-
-
  
 client.on('message', msg => {
   if (msg.content === 'ping') {
@@ -16,7 +14,7 @@ client.on('message', msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` VeGaS Shop ❣ `,"http://twitch.tv/S-F")
+client.user.setGame(` ⚒VeGaS Shop❦ `,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -58,9 +56,9 @@ client.on("message", message => {
    message.react("😜")
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField("『Bot 1 | Cop Shop 』 『اسم البوت』", true)
+      .addField("『Bot 1 | Gm 4 EveR 』 『اسم البوت』", true)
      
-      .addField("『مصمم البوت Cop Shop 』", true)
+      .addField("『مصمم البوت Za ||→ CopTan㦵❣#4444』", true)
      
       .addField("『!help^』😘『اذا تبي جميع الاوامر مع اوامر اضافية』😵", true)
      
@@ -577,33 +575,57 @@ message.channel.sendEmbed(cat);
     }
 });
  
-client.on('message',async message => {
-    let prefix = '!';
-  if(message.author.bot || message.channel.type === 'dm') return;
-  let args = message.content.split(' ');
-  if(args[0] === `${prefix}bc`) {
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('- **أنت لا تملك الصلاحيات اللازمة لأستخدام هذا الأمر**');
-    if(!args[1]) return message.channel.send('- **يجب عليك كتابة الرسالة بعد الأمر**');
-  
-    let msgCount = 0;
-    let errorCount = 0;
-    let successCount = 0;
-    message.channel.send(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`).then(msg => {
-      message.guild.members.forEach(g => {
-        g.send(args.slice(1).join(' ')).then(() => {
-          successCount++;
-          msgCount++;
-          msg.edit(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
-        }).catch(e => {
-          errorCount++;
-          msgCount++;
-          msg.edit(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
-        });
-      });
-    });
-  }
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
+
+client.on("message", async message => {
+  let bot = client;
+  let prefix = `!`
+  let messageArray = message.content.split(" ");
+  let msg = message;
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  if(!message.content.startsWith(prefix)) return;
+if(message.content.startsWith(prefix + "bc")){
+  if(!message.member.hasPermission("ADMINISTRATION")) return;
+var argsBC = message.content.split(' ').slice(1).join(' ');
+if(!argsBC) return message.channel.send("Type the message you want to send.");
+    
+message.delete();
+  message.channel.send("Wait a few seconds").then(message1 => {
+    message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+      m.send(argsBC.replace("[user]", m)).catch(err => console.log(err));
+    });
+    setTimeout(() => {
+      message1.edit(`I Have sent the message to  \`${message.guild.members.filter(m => m.presence.status !== 'offline').size}\` members successfully`
+    , 10000);
+    })
+})
+}
+
+
+if(message.content.startsWith(prefix + "obc")){
+  if(!message.member.hasPermission("ADMINISTRATION")) return;
+  var argsBC = message.content.split(' ').slice(1).join(' ');
+  if(!argsBC) return message.channel.send("Type the message you want to send.");
+      
+message.delete();
+    message.channel.send("Wait a few seconds").then(message1 => {
+      message.guild.members.forEach(m => {
+        m.send(argsBC.replace("[user]", m)).catch(err => console.log(err));
+      });
+      setTimeout(() => {
+        message1.edit(`i Have sent the message to \`${message.guild.members.filter(m => !m.user.bot).size}\` members successfully`
+      , 10000);
+      })
+  })
+}
+
+
+
+})
  
 client.on('message', message => {
     if (message.content === "!server") {
@@ -759,7 +781,7 @@ if (message.content.startsWith(prefix + 'clear')) {
 client.on('message', message => {
   if (true) {
 if (message.content === '!support') {
-      message.author.send(' |https://discord.gg/BTcKYu | لـ أي استفسار').catch(e => console.log(e.stack));
+      message.author.send(' |https://discord.gg/T4Q7vXP| لـ أي استفسار').catch(e => console.log(e.stack));
  
     }
    }
@@ -781,8 +803,41 @@ client.on('message', message => {
 });
  
  
-
-
+client.on('message', message => {
+  if (true) {
+if (message.content === '!invite') {
+      message.author.send(' رابط البوت |   ').catch(e => console.log(e.stack));
+ 
+    }
+   }
+  });
+ 
+ 
+ 
+client.on('message', message => {
+     if (message.content === "!invite") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+ 
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('!bc-users')){
+ if(!message.author.id === 'اي دي صاحب البوت') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
  
  
 client.on('message', message=>{
@@ -1149,7 +1204,7 @@ client.on("guildMemberAdd", member => {
     if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
-        maxUses: 5,
+        maxUses: 1,
         maxAge: 3600,
     }).then(invite =>
       message.author.sendMessage(invite.url)
@@ -1165,7 +1220,7 @@ client.on("guildMemberAdd", member => {
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
        
-    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 5 **")
+    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
       message.author.sendEmbed(Embed11)
     }
 });
@@ -1175,7 +1230,7 @@ client.on("guildMemberAdd", member => {
     if (message.content.startsWith("الرابط")) {
         message.channel.createInvite({
         thing: true,
-        maxUses: 5,
+        maxUses: 1,
         maxAge: 3600,
     }).then(invite =>
       message.author.sendMessage(invite.url)
@@ -1191,7 +1246,7 @@ client.on("guildMemberAdd", member => {
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
        
-    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 5 **")
+    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
       message.author.sendEmbed(Embed11)
     }
 });
@@ -1280,32 +1335,11 @@ client.on('message', msg => {
  
 client.on('message', msg => {
   if (msg.content === '!') {
-    msg.reply('Welcome To CopShop :ribbon: ');
+    msg.reply('Welcome To The Legends Shop!');
   }
 });
  
  
- client.on("message", message => {
  
-  if (message.author.bot) return;
-  if(!message.channel.guild)return;
-  if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'Super User',
-    rep: 0,
-    reps: 'NOT YET',
-    lastDaily:'Not Collected',
-    level: 0,
-    points: 0,
-    credits: 150,
-  };
- 
- 
-fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
-if (err) console.error(err);
-})
-});
-
-
-
  
 client.login(process.env.BOT_TOKEN8);
