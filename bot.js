@@ -49,30 +49,6 @@ client.on('ready',  () => {
 
  
  
-client.on('message', message => {
-   if (message.content === "!roll 1") {
-  message.channel.sendMessage(Math.floor(Math.random() * 25));
-    }
-});
- 
-client.on('message', message => {
-   if (message.content === "!roll 2") {
-  message.channel.sendMessage(Math.floor(Math.random() * 50));
-    }
-});
- 
-client.on('message', message => {
-   if (message.content === "!roll 3") {
-  message.channel.sendMessage(Math.floor(Math.random() * 75));
-    }
-});
- 
-client.on('message', message => {
-   if (message.content === "!roll 4") {
-  message.channel.sendMessage(Math.floor(Math.random() * 100));
-    }
-});
- 
  
 console.log('mariam ra7t tmot al nas');
 client.on('ready', () => {
@@ -281,12 +257,6 @@ client.on("message", message => {
 👑!ct  مـلاحظه: الاسم انت تختاره『لي انشاء روم كتابي』
 👑!cv  مـلاحظه: الاسم انت تختاره『لي انشاء روم صوتي』
 👑!delet  『كـود يحذف الـروم سواء صوتي او كتابي』
-● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
-🎲『القرعة』🎲
-🎲!roll 1   『القرعة من 1 الى 25』
-🎲!roll 2   『القرعة من 1 الى 50』
-🎲!roll 3   『القرعة من 1 الى 75』
-🎲!roll 4   『القرعة من 1 الى 100』
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ●
 🎮『العاب』🎮
 🎮!كت تويت
