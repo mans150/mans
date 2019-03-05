@@ -1249,4 +1249,4 @@ client.on('message', msg => {
 
  
  
-client.login(process.env.BOT_TOKEN8);
+client.login(process.env.BOT_TOKEN);
