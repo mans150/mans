@@ -14,7 +14,7 @@ client.on('message', msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` ⚒VeGaS Shop❦ `,"http://twitch.tv/S-F")
+client.user.setGame(` ⚒Family Shop❦ `,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -56,9 +56,9 @@ client.on("message", message => {
    message.react("😜")
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField("『Bot 1 | Gm 4 EveR 』 『اسم البوت』", true)
+      .addField("『Bot 1 | Family EveR 』 『اسم البوت』", true)
      
-      .addField("『مصمم البوت Za ||→ CopTan㦵❣#4444』", true)
+      .addField("『مصمم البوت ! CopTan㦵❣#4444』", true)
      
       .addField("『!help^』😘『اذا تبي جميع الاوامر مع اوامر اضافية』😵", true)
      
@@ -1335,10 +1335,52 @@ client.on('message', msg => {
  
 client.on('message', msg => {
   if (msg.content === '!') {
-    msg.reply('Welcome To The Legends Shop!');
+    msg.reply('Welcome To Family Shop!');
   }
 });
  
+
+client.on("guildMemberAdd", member => {
+  let welcomer = member.guild.channels.find("name","welcome");
+        if(!welcomer) return;
+        if(welcomer) {
+           moment.locale('ar-ly');
+           var h = member.user;
+          let norelden = new Discord.RichEmbed()
+          .setColor('RANDOM')
+          .setThumbnail(h.avatarURL)
+          .setAuthor(h.username,h.avatarURL)
+          .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **n** `${moment(member.user.createdAt).fromNow()}``,true)            
+           .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} n``${moment(member.joinedAt).startOf(' ').fromNow()}```, true) 
+           .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
+       welcomer.send({embed:norelden});          
+                 
+   
+        }
+        });
+		
+
+const invites = {};
+const wait = require('util').promisify(setTimeout);
+client.on('ready', () => {
+  wait(1000);
+  client.guilds.forEach(king => {
+    king.fetchInvites().then(guildInvites => {
+      invites[king.id] = guildInvites;
+    });
+  });
+});
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const gamer = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const welcome = member.guild.channels.find(channel => channel.name === "welcome");
+    welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
+  });
+});
  
  
  
