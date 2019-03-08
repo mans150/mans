@@ -60,6 +60,35 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
 
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find('name', 'welcome');
+  if (!channel) return;
+  let memberavatar = member.user.avatarURL
+  let snow = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setThumbnail(memberavatar)
+    .addField('**Welcome**',`**[${member}]**`)
+    .addField('**u r member number**',`**[${member.guild.memberCount}]**`)
+ 
+    channel.send({snow:snow});
+}
+);
+ 
+ client.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find('name', 'welcome');
+  if (!channel) return;
+  let memberavatar = member.user.avatarURL
+  let snow = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setThumbnail(memberavatar)
+    .addField('**✋ |Good bye| ✋**',`**[${member}]**`)
+    .addField('**👇 |Number of members now| 👇**',`**[${member.guild.memberCount}]**`)
+ 
+    channel.send({snow:snow});
+}
+);
+
+
 
 
 client.on('ready',  () => {
