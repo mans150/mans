@@ -14,7 +14,7 @@ client.on('message', msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` ⚒Family Shop❦ `,"http://twitch.tv/S-F")
+client.user.setGame(` ⚒3D Shop❦ `,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -56,10 +56,8 @@ client.on("message", message => {
    message.react("😜")
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField("『Bot 1 | Family EveR 』 『اسم البوت』", true)
-     
-      .addField("『مصمم البوت ! CopTan㦵❣#4444』", true)
-     
+      .addField("『Bot 1 | 3D SHOP 』 『اسم البوت』", true)
+          
       .addField("『!help^』😘『اذا تبي جميع الاوامر مع اوامر اضافية』😵", true)
      
         .addField("『!help^^』👻『اذا تبي الاوامر العامة』😳", true)
@@ -787,46 +785,7 @@ if (message.content === '!support') {
    }
   });
  
- 
- 
-client.on('message', message => {
-     if (message.content === "!support") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
- 
- 
-client.on('message', message => {
-  if (true) {
-if (message.content === '!invite') {
-      message.author.send(' رابط البوت |   ').catch(e => console.log(e.stack));
- 
-    }
-   }
-  });
- 
- 
- 
-client.on('message', message => {
-     if (message.content === "!invite") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
- 
+
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
@@ -1335,7 +1294,7 @@ client.on('message', msg => {
  
 client.on('message', msg => {
   if (msg.content === '!') {
-    msg.reply('Welcome To Family Shop!');
+    msg.reply('Welcome To 3D Shop!');
   }
 });
  
