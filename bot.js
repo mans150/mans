@@ -21,7 +21,7 @@ client.on('message', msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` ⚒JM BoT❦ `,"http://twitch.tv/S-F")
+client.user.setGame(` ⚒3D SHOP❦ `,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -54,7 +54,7 @@ client.on('guildMemberAdd', member=> {
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
-  return channel.send(`🌹  ولكم نورت السيرفر🌹 
+  return channel.send(`🌹 3D SHOP ولكم نورت السيرفر🌹 
 👑اسم العضو  ${member}👑  
 انت العضو رقم ${member.guild.memberCount}`) 
 }).catch(console.error)
@@ -707,54 +707,6 @@ if (message.content.startsWith(prefix + 'clear')) {
  
 });
  
-client.on('message', message => {
-  if (true) {
-if (message.content === '!support') {
-      message.author.send(' |https://discord.gg/T4Q7vXP| لـ أي استفسار').catch(e => console.log(e.stack));
- 
-    }
-   }
-  });
- 
- 
- 
-client.on('message', message => {
-     if (message.content === "!support") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
- 
- 
-client.on('message', message => {
-  if (true) {
-if (message.content === '!invite') {
-      message.author.send(' رابط البوت |   ').catch(e => console.log(e.stack));
- 
-    }
-   }
-  });
- 
- 
- 
-client.on('message', message => {
-     if (message.content === "!invite") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
  
 client.on('message', message => {
             if(!message.channel.guild) return;
